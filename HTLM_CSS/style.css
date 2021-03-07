@@ -1,0 +1,85 @@
+* {
+    margin       : 0;
+    padding      : 0;
+    /* box-sizing: border-box; */
+}
+
+body {
+    font-family        : sans-serif;
+    min-height         : 100vh;
+    background-color: red;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    cursor             : pointer;
+}
+
+.container {
+    background-color: rgb(74, 226, 74);
+    width          : 70%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.box {
+    min-height     : 70vh;
+    width          : 70%;
+    background     : rgb(41, 41, 40);
+    border-radius  : 50px;
+    box-shadow     : 5px 5px 6px rgba(0, 0, 0, .5), -5px -5px 6px rgba(0, 0, 0, .5);
+    flex-wrap      : wrap;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+h1 {
+    color      : #FC00FF;
+    font-size  : 50px;
+    position   : relative;
+    margin-left: 1rem;
+    display    : flex;
+    align-items: center;
+}
+
+.form {
+    min-width          : 50%;
+    /* background-color: rgb(70, 68, 68); */
+    min-height         : 50vh;
+    color              : white;
+}
+
+label {
+    font-size   : 20px;
+    line-height : 2;
+    font-family : Arial;
+    font-weight : 500;
+    padding-left: 20px;
+    padding-top : 15px;
+}
+
+button {
+    outline         : none;
+    margin-left     : 1rem;
+    margin-top      : 2rem;
+    display         : flex;
+    align-items     : center;
+    padding         : 5px 80px;
+    border-radius   : 30px;
+    /* margin-left  : 1rem;
+    margin-top      : 2rem; */
+    background-color: #CF00FC;
+    color           : white;
+}
+
+.path {
+    position        : absolute;
+    min-height      : 50vh;
+    width           : 51%;
+    /* background-color: red; */
+    background      : linear-gradient(90deg, #00DBDe 0%, #FC00FF 100%);
+    clip-path       : circle(320px at right);
+    border-radius   : 30px;
+    z-index         : 1;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    .animation {
+      /* magin-left: 150px; */
+      margin-top: 1px;
+      width: 300px;
+      height: 100px;
+      background-color: yellow;
+      border: 4px solid black;
+      transform: translate(140px, 100px);
+      /* Standard syntax */
+      background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+    }
+
+    .d2 {
+      width: 300px;
+      height: 100px;
+      background: green;
+      animation-name: example;
+      animation-duration: 4s;
+    }
+
+    @keyframes example {
+      from {
+        background: green;
+      }
+
+      to {
+        background: red;
+      }
+
+      /* from {background: red;} */
+      /* to {background: blue;} */
+    }
+  </style>
+  <script>
+    function clicks() {
+      var val1 = document.getElementById('num1').value;
+      var val2 = document.getElementById('num2').value;
+
+      var animation = document.getElementById('animation');
+      animation.style.color = "red";
+      animation.style.transform = "translate(" + val1 + "px," + val2 + "px)";
+      // var val1=  document.getElementById('num1').value;
+      console.log(val1);
+
+
+    }
+    function showVal() {
+      var rangs = document.getElementById('ranges').value;
+      console.log(rangs);
+      var animation = document.getElementById('animation');
+      animation.style.background = "green";
+      animation.style.transform = "translate(" + rangs + "px,110px)";
+      document.getElementById('show').innerHTML = "show range: " + rangs;
+    }
+    function start() {
+      var i = 1;
+      setInterval(function () {
+        i++;
+        var animation = document.getElementById('animation');
+        animation.background = "repeating-radial-gradient(red, yellow "+i+" %, green 15 %)";
+        // animation.style.background = "rgb(1" + i + ", 2" + i + "," + i + "0)";
+        animation.style.transform = "translate(" + (i + 2) + "px," + i + "px) rotate(" + i + "deg) skewY(" + i + "deg) matrix(1, -0.3, 0, 1, 0, 0)";
+        document.getElementById('show').innerHTML = "show range: " + i;
+        if (i == 300) i = 0;
+      }, 1);
+    }
+    var ii = 1;
+    setInterval(function () {
+
+
+      document.getElementById('show').innerHTML = ii;
+      ii++;
+      console.log(ii);
+    }, 1000);
+  </script>
+</head>
+
+<body>
+  <div class="d2">
+    <input type="text" name="" id="num1" value=""><br><br>
+    <input type="text" name="" id="num2" value=""><br><br>
+    <input type="range" name="" id="ranges" min="5" max="1000" step="1" onchange="showVal()" width="80%"> <br>
+    <p id="show">show range: 0 </p>
+    <button type="button" name="button" onclick="clicks()">click me</button>
+    <button type="button" onclick="start()" name="button">Press to Start</button>
+  </div>
+
+  <div class="" style="background:blue; display: block; margin-right:250px; justify-content: center;">
+    <div class="" style="display: flex;">
+      <!-- <div id="animation" class="animation">
+    <button type="button" name="button">this is button</button>
+    This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+  </div> -->kkkkkkkkkk
+      <div id="animation" class="animation">
+        This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+      </div>
+      <div id="animation" class="animation">
+        This div element is moved 50 pixels to the right, and 100 pixels down from its current position.
+      </div>
+      <div class="d2 animation">
+        div2
+      </div>
+      <div class="d2 animation">
+        div2
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

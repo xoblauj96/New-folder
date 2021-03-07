@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="show1">text1 will display here</h2>
+    <div class="container">
+        <h2 id="show">text will display here</h2>
+
+        <div class="box">
+            <div class="path"></div>
+            <div class="form">
+                <h1>Login</h1><br><br>
+                <label for="">Username</label><br><br>
+                <input type="text" name="" id=""><br><br>
+                <label for="">Password</label><br><br>
+                <input type="password" name="" id=""><br><br>
+                <button>Sign in</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const box = document.querySelector(".box");
+    const show = document.querySelector("#show");
+    const show1 = document.querySelector("#show1");
+    show.innerHTML = "window.innerHeight: " + window.innerHeight + "<br> window.innerWidth " + window.innerWidth
+    const container = document.querySelector(".container");
+    container.addEventListener("mousemove", (e) => {
+        console.log("e==========> ", e);
+        let horizontal = (window.innerWidth / 2 - e.pageX) / 10
+        console.log("horizontal===>", horizontal);
+        show1.innerHTML = "e.pageX: " + e.pageX + " e.pageY " + e.pageY+" horizontal"+ horizontal;
+        let vertical = (window.innerHeight / 2 - e.pageY) / 10
+        box.style.transform = `rotateX(${vertical}deg) rotateY(${horizontal}deg)`;
+    })
+
+</script>
