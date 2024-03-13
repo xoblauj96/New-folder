@@ -1,28 +1,38 @@
-Basic to Advance Python Django with AGC
-⚡ Day 1
-#1 ดาวน์โหลดเอกสารประกอบการเรียนรู้
- Python Django with AGC
-#2 Tools & Environment Setup
- Python 3.11.x
- Visual Studio Code
- Git
-#3 ตรวจสอบเวอร์ชั่นของแต่ละเครื่องมือ
-#3.1 ตรวจสอบเวอร์ชั่นของ Python on Windows
+### Basic to Advance Python Django with AGC
+---
+### ⚡ Day 1
 
+##### #1 ดาวน์โหลดเอกสารประกอบการเรียนรู้
+- [ ] [Python Django with AGC](bit.ly/django-agc)
+
+##### #2 Tools & Environment Setup
+- [ ] [Python 3.11.x](https://www.python.org/downloads/)
+- [ ] [Visual Studio Code](https://code.visualstudio.com/download)
+- [ ] [Git](https://git-scm.com/downloads)
+
+##### #3 ตรวจสอบเวอร์ชั่นของแต่ละเครื่องมือ
+\#3.1 ตรวจสอบเวอร์ชั่นของ Python on Windows
+
+```bash
 python --version
 pip --version
-#3.2 ตรวจสอบเวอร์ชั่นของ Python on Mac OS and Linux
-
+```
+\#3.2 ตรวจสอบเวอร์ชั่นของ Python on Mac OS and Linux
+```bash
 python3 --version
 pip3 --version
-#3.3 ตรวจสอบเวอร์ชั่นของ Visual Studio Code
+```
 
+\#3.3 ตรวจสอบเวอร์ชั่นของ Visual Studio Code
+```bash
 code --version
-#3.4 ตรวจสอบเวอร์ชั่นของ Git
-
+```
+\#3.4 ตรวจสอบเวอร์ชั่นของ Git
+```bash
 git --version
-#3.5 แนะนำรายชื่อส่วนเสริมของ Visual Studio Code for Python Django
-
+```
+\#3.5 แนะนำรายชื่อส่วนเสริมของ Visual Studio Code for Python Django
+```bash
 - Python by Microsoft
 - Django by Baptiste Darthenay
 - AutoFileName by JerryHong
@@ -31,40 +41,61 @@ git --version
 - Djaneiro - Django Snippets by Scott Barkman
 - Copy Django model fields by baterson
 - One Dark Pro by binaryify
-#4. การสร้าง Virtual Enviroment
-#4.1 Windows
-
+```
+##### #4. การสร้าง Virtual Enviroment
+\#4.1 Windows
+```bash
 python -m venv env
-#4.2 Mac OS and Linux
+```
 
+\#4.2 Mac OS and Linux
+```bash
 python3 -m venv env
-#5. การเปิดใช้งาน Virtual Enviroment
-#5.1 Windows
+```
 
+##### #5. การเปิดใช้งาน Virtual Enviroment
+\#5.1 Windows
+```bash
 env\Scripts\activate
-#5.2 Mac OS and Linux
+```
 
+\#5.2 Mac OS and Linux
+```bash
 source env/bin/activate
-#6. การติดตั้ง Django
-#6.1 ติดตั้ง Django 4.2.2
+```
 
+##### #6. การติดตั้ง Django
+\#6.1 ติดตั้ง Django 4.2.2
+```bash
 pip install django==4.2.2
-#6.2 เช็ครายการ Package ที่ติดตั้งแล้ว
-
+```
+\#6.2 เช็ครายการ Package ที่ติดตั้งแล้ว
+```bash
 pip list
-#7. การสร้าง Project ใน Django
+```
+
+##### #7. การสร้าง Project ใน Django
+```bash
 django-admin startproject firstdjango
-#8. การรันโปรแกรม Django
-#8.1 เข้าไปในโปรเจคที่สร้างขึ้นมา
+```
 
+##### #8. การรันโปรแกรม Django
+\#8.1 เข้าไปในโปรเจคที่สร้างขึ้นมา
+```bash
 cd firstdjango
-#8.2 รันโปรแกรม Django
+```
 
+\#8.2 รันโปรแกรม Django
+```bash
 python manage.py runserver
+```
 or run with port 8110
-
+```bash
 python manage.py runserver 8110
-#9. เรียนรู้ Django Project Structure
+```
+
+##### #9. เรียนรู้ Django Project Structure
+```bash
 firstdjango
 ├── firstdjango
 │   ├── __init__.py
@@ -74,24 +105,32 @@ firstdjango
 │   └── wsgi.py
 ├── db.sqlite3
 └── manage.py
-#10. การสร้าง View ใน Django
-#10.1 เข้าไปในโปรเจคที่สร้างขึ้นมา
+```
 
+##### #10. การสร้าง View ใน Django
+\#10.1 เข้าไปในโปรเจคที่สร้างขึ้นมา
+```bash
 cd firstdjango
-#10.2 สร้างไฟล์ views.py ในโปรเจคบน macOS and Linux
-
+```
+\#10.2 สร้างไฟล์ views.py ในโปรเจคบน macOS and Linux
+```bash
 touch views.py
-#10.3 สร้างไฟล์ views.py ในโปรเจคบน Windows
-
+```
+\#10.3 สร้างไฟล์ views.py ในโปรเจคบน Windows
+```bash
 type nul > views.py
-#10.4 แก้ไขไฟล์ views.py
+```
 
+\#10.4 แก้ไขไฟล์ views.py
+```python
 from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Welcome to Django AGC")
-#10.5 แก้ไขไฟล์ urls.py
+```
 
+\#10.5 แก้ไขไฟล์ urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -100,9 +139,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
-#11. การกำหนด Path แบบมี Parameter
-#11.1 แก้ไขไฟล์ views.py
+```
 
+##### #11. การกำหนด Path แบบมี Parameter
+\#11.1 แก้ไขไฟล์ views.py
+```python
 from django.http import HttpResponse
 
 def index(request):
@@ -110,8 +151,10 @@ def index(request):
 
 def hello(request, name):
     return HttpResponse(f"Hello {name}")
-#11.2 แก้ไขไฟล์ urls.py
+```
 
+\#11.2 แก้ไขไฟล์ urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -121,12 +164,16 @@ urlpatterns = [
     path('hello/<str:name>', views.hello, name='hello'),
     path('admin/', admin.site.urls),
 ]
-#12. การสร้าง Template ใน Django
-#12.1 สร้างโฟลเดอร์ templates ในโปรเจคบน macOS and Linux
+```
 
+##### #12. การสร้าง Template ใน Django
+\#12.1 สร้างโฟลเดอร์ templates ในโปรเจคบน macOS and Linux
+```bash
 mkdir templates
-#12.2 แก้ไขไฟล์ settings.py
+```
 
+\#12.2 แก้ไขไฟล์ settings.py
+```python
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -135,17 +182,25 @@ TEMPLATES = [
         ...
     },
 ]
-#12.3 สร้างโฟลเดอร์ templates ในโปรเจคบน Windows
+```
 
+\#12.3 สร้างโฟลเดอร์ templates ในโปรเจคบน Windows
+```bash
 md templates
-#12.4 สร้างไฟล์ index.html ในโฟลเดอร์ templates บน macOS and Linux
+```
 
+\#12.4 สร้างไฟล์ index.html ในโฟลเดอร์ templates บน macOS and Linux
+```bash
 touch templates/index.html
-#12.5 สร้างไฟล์ index.html ในโฟลเดอร์ templates บน Windows
+```
 
+\#12.5 สร้างไฟล์ index.html ในโฟลเดอร์ templates บน Windows
+```bash
 type nul > templates/index.html
-#12.6 แก้ไขไฟล์ index.html
+```
 
+\#12.6 แก้ไขไฟล์ index.html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,19 +211,25 @@ type nul > templates/index.html
     <h1>Welcome to Django AGC</h1>
 </body>
 </html>
-#12.7 แก้ไขไฟล์ views.py
+```
 
+\#12.7 แก้ไขไฟล์ views.py
+```python
 from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
     return render(request, 'index.html')
-#13. การสร้าง Static File ใน Django
-#13.1 สร้างโฟลเดอร์ static ในโปรเจคบน macOS and Linux and Windows
+```
 
+##### #13. การสร้าง Static File ใน Django
+\#13.1 สร้างโฟลเดอร์ static ในโปรเจคบน macOS and Linux and Windows
+```bash
 mkdir static
-#13.2 แก้ไขไฟล์ settings.py
+```
 
+\#13.2 แก้ไขไฟล์ settings.py
+```python
 import os
 
 STATIC_URL = 'static/'
@@ -179,17 +240,23 @@ STATICFILES_DIRS = [
 ]
 # แก้ไขบรรทัดนี้สำหรับ production
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#13.3 สร้างไฟล์ style.css ในโฟลเดอร์ static/css บน macOS and Linux and Windows
+```
 
+\#13.3 สร้างไฟล์ style.css ในโฟลเดอร์ static/css บน macOS and Linux and Windows
+```bash
 mkdir static/css/style.css
-#13.4 แก้ไขไฟล์ style.css
+```
 
+\#13.4 แก้ไขไฟล์ style.css
+```css
 body {
     background-color: #eb5454;
     font-family: Arial, Helvetica, sans-serif;
 }
-#13.5 แก้ไขไฟล์ index.html
+```
 
+\#13.5 แก้ไขไฟล์ index.html
+```html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -202,14 +269,20 @@ body {
     <h1>Welcome to Django AGC</h1>
 </body>
 </html>
-#13.6 การใส่รูปภาพในโปรเจ็กต์ที่ path /static/images/mypic.png
+```
 
+\#13.6 การใส่รูปภาพในโปรเจ็กต์ที่ path /static/images/mypic.png
+```bash
 mkdir static/images
-#13.7 คัดลอกไฟล์ mypic.png ไปยังโฟลเดอร์ static/images
+```
 
+\#13.7 คัดลอกไฟล์ mypic.png ไปยังโฟลเดอร์ static/images
+```bash
 cp mypic.png static/images
-#13.8 แก้ไขไฟล์ index.html
+```
 
+\#13.8 แก้ไขไฟล์ index.html
+```html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -223,8 +296,10 @@ cp mypic.png static/images
     <img src="{% static '/images/mypic.png' %}" alt="My Picture">
 </body>
 </html>
-#13.9 โครงสร้างโปรเจ็กต์ในตอนนี้
+```
 
+\#13.9 โครงสร้างโปรเจ็กต์ในตอนนี้
+```bash
 firstdjango
 ├── firstdjango
 │   ├── __init__.py
@@ -240,28 +315,36 @@ firstdjango
 │       └── mypic.png
 └── templates
     └── index.html
-#13.10 การแทรกค่าของตัวแปรในไฟล์จาก Python ในไฟล์ HTML
+```
 
-#13.10.1 แก้ไขไฟล์ urls.py
+\#13.10 การแทรกค่าของตัวแปรในไฟล์จาก Python ในไฟล์ HTML
 
+\#13.10.1 แก้ไขไฟล์ urls.py
+```python
 urlpatterns = [
     ...
     # การสร้าง path และรับค่าจาก view
     path('test', views.test, name='test'),
 ]
-#13.10.2 แก้ไขไฟล์ views.py
+```
 
+\#13.10.2 แก้ไขไฟล์ views.py
+```python
 def test(request):
     # สร้างตัวแปร data และกำหนดค่าให้กับตัวแปร
     data = {'title': 'Django AGC', 'message': 'Welcome to Django AGC'}
 
     # ส่งค่าตัวแปร data ไปยังไฟล์ test.html
     return render(request, 'test.html', data)
-#13.10.3 สร้างไฟล์ test.html ในโฟลเดอร์ templates บน macOS and Linux and Windows
+```
 
+\#13.10.3 สร้างไฟล์ test.html ในโฟลเดอร์ templates บน macOS and Linux and Windows
+```bash
 touch templates/test.html
-#13.10.4 แก้ไขไฟล์ test.html
+```
 
+\#13.10.4 แก้ไขไฟล์ test.html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -273,28 +356,40 @@ touch templates/test.html
     <p>{{ message }}</p>
 </body>
 </html>
-⚡ Day 2
-Build a Blog Application
-หัวข้อการเรียนรู้
-การสร้างโปรเจ็กต์ใหม่ใน Django
-การ Migrate ฐานข้อมูลพื้นฐาน
-การสร้างแอพพลิเคชันใน Django
-การ Activate แอพพลิเคชั่นใน settings.py
-การสร้างโมเดลใน Django
-การสร้างและประยุกต์ทำงานกับ model migration
-การสร้าง admin site สำหรับ model
-#1. การสร้างโปรเจ็กต์ Django
-#1.1 activate virtual environment บน windows
+```
 
+### ⚡ Day 2
+
+#### Build a Blog Application
+
+##### หัวข้อการเรียนรู้
+1. การสร้างโปรเจ็กต์ใหม่ใน Django
+2. การ Migrate ฐานข้อมูลพื้นฐาน
+3. การสร้างแอพพลิเคชันใน Django
+4. การ Activate แอพพลิเคชั่นใน settings.py
+5. การสร้างโมเดลใน Django
+6. การสร้างและประยุกต์ทำงานกับ model migration
+7. การสร้าง admin site สำหรับ model
+
+##### #1. การสร้างโปรเจ็กต์ Django
+
+\#1.1 activate virtual environment บน windows
+```bash
 env\Scripts\activate
-#1.2 สร้างโปรเจ็กต์ Django ในโฟลเดอร์ DjangoAGC บน macOS and Linux and Windows
+```
 
+\#1.2 สร้างโปรเจ็กต์ Django ในโฟลเดอร์ DjangoAGC บน macOS and Linux and Windows
+```bash
 django-admin startproject mysite
-#1.3 เปิดโปรเจ็กต์ mysite เข้า vscode
+```
 
+\#1.3 เปิดโปรเจ็กต์ mysite เข้า vscode
+```bash
 code mysite -r
-#1.4 โครงสร้างโปรเจ็กต์ในตอนนี้
+```
 
+\#1.4 โครงสร้างโปรเจ็กต์ในตอนนี้
+```bash
 mysite
 ├── manage.py
 └── mysite
@@ -303,17 +398,28 @@ mysite
     ├── settings.py
     ├── urls.py
     └── wsgi.py
-#2. การ migrate ฐานข้อมูลเริ่มต้น
+```
+
+##### #2. การ migrate ฐานข้อมูลเริ่มต้น
+
+```bash
 python manage.py migrate
-#2.1 ทดสอบ runserver
+```
 
+\#2.1 ทดสอบ runserver
+```bash
 python manage.py runserver
-#3. การสร้างแอพพลิเคชันใน Django
-#3.1 สร้างแอพพลิเคชัน blog ในโปรเจ็กต์ mysite
+```
 
+##### #3. การสร้างแอพพลิเคชันใน Django
+
+\#3.1 สร้างแอพพลิเคชัน blog ในโปรเจ็กต์ mysite
+```bash
 python manage.py startapp blog
-#3.2 โครงสร้างโปรเจ็กต์ในตอนนี้
+```
 
+\#3.2 โครงสร้างโปรเจ็กต์ในตอนนี้
+```bash
 mysite # โปรเจ็กต์ mysite
 ├── blog # สร้างแอพพลิเคชัน blog
 │   ├── __init__.py
@@ -332,14 +438,20 @@ mysite # โปรเจ็กต์ mysite
     ├── urls.py
     └── wsgi.py
     db.sqlite3 # ฐานข้อมูลเริ่มต้น
-#4. Activate แอพพลิเคชัน blog ในไฟล์ mysite/settings.py
+```
+
+##### #4. Activate แอพพลิเคชัน blog ในไฟล์ mysite/settings.py
+```python
 INSTALLED_APPS = [
     ...
     'blog.apps.BlogConfig', # แอพพลิเคชัน blog
 ]
-#5. การสร้างโมเดลใน Django
-#5.1 แก้ไขไฟล์ blog/models.py
+```
 
+##### #5. การสร้างโมเดลใน Django
+
+\#5.1 แก้ไขไฟล์ blog/models.py
+```python
 from django.db import models
 
 # สร้างโมเดล Post
@@ -350,8 +462,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#5.2 เพิ่ม datetime ในไฟล์ blog/models.py
-
+```
+\#5.2 เพิ่ม datetime ในไฟล์ blog/models.py
+```python
 from django.db import models
 from django.utils import timezone # เพิ่ม datetime
 
@@ -366,8 +479,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#5.3 การกำหนดการเรียงข้อมูลในโมเดล Post ในไฟล์ blog/models.py
+```
 
+\#5.3 การกำหนดการเรียงข้อมูลในโมเดล Post ในไฟล์ blog/models.py
+```python
 from django.db import models
 from django.utils import timezone
 
@@ -384,8 +499,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#5.4 การเพิ่ม index ในโมเดล Post ในไฟล์ blog/models.py
+```
 
+\#5.4 การเพิ่ม index ในโมเดล Post ในไฟล์ blog/models.py
+```python
 from django.db import models
 from django.utils import timezone
 
@@ -405,8 +522,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#5.5 เพิ่มฟิลด์ status ในโมเดล Post ในไฟล์ blog/models.py
+```
 
+\#5.5 เพิ่มฟิลด์ status ในโมเดล Post ในไฟล์ blog/models.py
+```python
 from django.db import models
 from django.utils import timezone
 
@@ -434,16 +553,21 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#5.6 ทดสอบเรียกดู status ผ่าน shell
-
+```
+\#5.6 ทดสอบเรียกดู status ผ่าน shell
+```bash
 python manage.py shell
+```
+```python
 from blog.models import Post
 Post.Status.choices
 Post.Status.labels
 Post.Status.values
 Post.Status.names
-#5.7 สร้างความสัมพันธ์ในโมเดล Post กับ User ในไฟล์ blog/models.py
+```
 
+\#5.7 สร้างความสัมพันธ์ในโมเดล Post กับ User ในไฟล์ blog/models.py
+```python
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User # เพิ่มความสัมพันธ์กับ User
@@ -462,87 +586,125 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#6. การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
-#6.1 สร้างไฟล์ migrations ในโมเดล blog
+```
 
+##### #6. การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
+\#6.1 สร้างไฟล์ migrations ในโมเดล blog
+```bash
 python manage.py makemigrations blog
-#6.2 เรียกดูไฟล์ migrations ในโมเดล blog
+```
 
+\#6.2 เรียกดูไฟล์ migrations ในโมเดล blog
+```bash
 python manage.py sqlmigrate blog 0001
-#6.3 ทำการ migrate ฐานข้อมูล
+```
 
+\#6.3 ทำการ migrate ฐานข้อมูล
+```bash
 python manage.py migrate
-#7. การสร้าง admin site สำหรับ model
-#7.1 สร้าง superuser
+```
 
+##### #7. การสร้าง admin site สำหรับ model
+\#7.1 สร้าง superuser
+```bash
 python manage.py createsuperuser
-#7.2 ทดสอบเข้า admin site
+```
 
+\#7.2 ทดสอบเข้า admin site
+```bash
 python manage.py runserver
+```
 เข้า admin site ที่ http://127.0.0.1:8000/admin
 
-#7.3 เพิ่มโมเดล Post ในไฟล์ blog/admin.py
-
+\#7.3 เพิ่มโมเดล Post ในไฟล์ blog/admin.py
+```python
 from django.contrib import admin
 from .models import Post
 
 # Register your models here.
 admin.site.register(Post)
-⚡ Day 3
-Build an Inventory Management System
-หัวข้อการเรียนรู้
-การติดตั้งฐานข้อมูล MySQL ผ่าน XAMPP
-ดาวน์โหลด Template Bootstrap 4 จาก Start Bootstrap
-การสร้างโปรเจ็กต์ Django ชื่อ inventory
-การสร้างแอพพลิเคชันใน Django ชื่อ stock
-การ Activate แอพพลิเคชั่นใน settings.py
-ปรับโครงสร้างโปรเจ็กต์ Django ใช้ Template Bootstrap 4
-#1. การติดตั้งฐานข้อมูล MySQL ผ่าน XAMPP
-#1.1 ดาวน์โหลด XAMPP จาก https://www.apachefriends.org/download.html
+```
 
-#1.2 ติดตั้ง XAMPP และเปิดใช้งาน Apache และ MySQL
+### ⚡ Day 3
 
-#1.3 เข้าใช้งาน phpMyAdmin ที่ http://localhost/phpmyadmin/
+#### Build an Inventory Management System
 
-#1.4 สร้างฐานข้อมูลชื่อ djangoinventory
+##### หัวข้อการเรียนรู้
+1. การติดตั้งฐานข้อมูล MySQL ผ่าน XAMPP
+2. ดาวน์โหลด Template Bootstrap 4 จาก Start Bootstrap
+3. การสร้างโปรเจ็กต์ Django ชื่อ inventory
+4. การสร้างแอพพลิเคชันใน Django ชื่อ stock
+5. การ Activate แอพพลิเคชั่นใน settings.py
+6. ปรับโครงสร้างโปรเจ็กต์ Django ใช้ Template Bootstrap 4
 
-#2. ดาวน์โหลด Template Bootstrap 4 จาก Start Bootstrap
-#2.1 ดาวน์โหลด Template Bootstrap 4 จาก https://startbootstrap.com/themes/sb-admin-2/
 
-#2.2 แตกไฟล์ sb-admin-2.zip และนำไปไว้ที่โฟลเดอร์ inventory/templates/
+##### #1. การติดตั้งฐานข้อมูล MySQL ผ่าน XAMPP
 
-#3. การสร้างโปรเจ็กต์ Django
-#3.1 สร้าง environment ชื่อ myenv
+\#1.1 ดาวน์โหลด XAMPP จาก https://www.apachefriends.org/download.html
 
+\#1.2 ติดตั้ง XAMPP และเปิดใช้งาน Apache และ MySQL
+
+\#1.3 เข้าใช้งาน phpMyAdmin ที่ http://localhost/phpmyadmin/
+
+\#1.4 สร้างฐานข้อมูลชื่อ djangoinventory
+
+##### #2. ดาวน์โหลด Template Bootstrap 4 จาก Start Bootstrap
+
+\#2.1 ดาวน์โหลด Template Bootstrap 4 จาก https://startbootstrap.com/themes/sb-admin-2/
+
+\#2.2 แตกไฟล์ sb-admin-2.zip และนำไปไว้ที่โฟลเดอร์ inventory/templates/
+
+##### #3. การสร้างโปรเจ็กต์ Django
+
+\#3.1 สร้าง environment ชื่อ myenv
+```bash
 python -m venv myenv
-#3.2 Activate environment
+```
 
+\#3.2 Activate environment
+```bash
 myenv\Scripts\activate
-#3.3 ติดตั้ง Django 4.1.7
+```
 
+\#3.3 ติดตั้ง Django 4.1.7
+```bash
 pip install django==4.1.7
-#3.4 ติดตั้ง mysqlclient 2.1.1
+```
 
+\#3.4 ติดตั้ง mysqlclient 2.1.1
+```bash
 pip install mysqlclient==2.1.1
-#3.5 สร้างโปรเจ็กต์ Django ชื่อ inventory
+```
 
+\#3.5 สร้างโปรเจ็กต์ Django ชื่อ inventory
+```bash
 django-admin startproject inventory
-#4. การสร้างแอพพลิเคชันใน Django ชื่อ stock
-#4.1 สร้างแอพพลิเคชันใน Django ชื่อ stock
+```
 
+##### #4. การสร้างแอพพลิเคชันใน Django ชื่อ stock
+
+\#4.1 สร้างแอพพลิเคชันใน Django ชื่อ stock
+```bash
 python manage.py startapp stock
-#5. การ Activate แอพพลิเคชั่นใน settings.py
-#5.1 แก้ไขไฟล์ inventory/settings.py
+```
 
+##### #5. การ Activate แอพพลิเคชั่นใน settings.py
+
+\#5.1 แก้ไขไฟล์ inventory/settings.py
+```python
 INSTALLED_APPS = [
     ...
     'stock.apps.StockConfig', # เพิ่มแอพพลิเคชั่น stock
 ]
-#5.2 แก้ไข Timezone ในไฟล์ inventory/settings.py
+```
 
+\#5.2 แก้ไข Timezone ในไฟล์ inventory/settings.py
+```python
 TIME_ZONE = 'Asia/Bangkok'
-#5.3 แก้ไข template ในไฟล์ inventory/settings.py
+```
 
+\#5.3 แก้ไข template ในไฟล์ inventory/settings.py
+```python
 import os
 
 TEMPLATES = [
@@ -552,15 +714,19 @@ TEMPLATES = [
         ...
     },
 ]
-#5.4 แก้ไข static ในไฟล์ inventory/settings.py
+```
 
+\#5.4 แก้ไข static ในไฟล์ inventory/settings.py
+```python
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'), # เพิ่ม static
 ]
-#5.5 แก้ไข Database Connection ในไฟล์ inventory/settings.py
+```
 
+\#5.5 แก้ไข Database Connection ในไฟล์ inventory/settings.py
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -571,9 +737,12 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-#6. ปรับโครงสร้างโปรเจ็กต์ Django ใช้ Template Bootstrap 4
-#6.1 แก้ไขไฟล์ inventory/urls.py
+```
 
+##### #6. ปรับโครงสร้างโปรเจ็กต์ Django ใช้ Template Bootstrap 4
+
+\#6.1 แก้ไขไฟล์ inventory/urls.py
+```python
 from django.contrib import admin
 from django.urls import path, include
 
@@ -581,8 +750,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('stock.urls'))
 ]
-#6.2 แก้ไขไฟล์ stock/urls.py
+```
 
+\#6.2 แก้ไขไฟล์ stock/urls.py
+```python
 from django import views
 from django.urls import path
 from . import views
@@ -597,8 +768,10 @@ urlpatterns = [
 
     # Backend
 ]
-#6.3 แก้ไขไฟล์ stock/views.py
+```
 
+\#6.3 แก้ไขไฟล์ stock/views.py
+```python
 from django.shortcuts import render
 
 # สร้างฟังก์ชันเรียกหน้า html ที่เราสร้างขึ้นมา
@@ -608,8 +781,11 @@ def index(request):
 # ฟังก์ชันเรียกหน้า login.html
 def login(request):
     return render(request, 'auth/login.html')
-#6.4 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/frontend/
 
+```
+
+\#6.4 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/frontend/
+```html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -726,13 +902,18 @@ def login(request):
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
-#6.5 สร้างไฟล์ style.css ในโฟลเดอร์ static/css/
 
+```
+
+\#6.5 สร้างไฟล์ style.css ในโฟลเดอร์ static/css/
+```css
 body {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
-#6.6 สร้างไฟล์ index.html ในโฟลเดอร์ inventory/templates/frontend/
+```
 
+\#6.6 สร้างไฟล์ index.html ในโฟลเดอร์ inventory/templates/frontend/
+```html
 {% extends 'frontend/main_layout.html' %}
 {% load static %}
 
@@ -770,13 +951,18 @@ body {
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio quo voluptatum id praesentium, corrupti enim ea maxime eum saepe? Ratione nihil amet, rem aliquam eligendi cupiditate assumenda tenetur laudantium beatae ipsam odio eum fugit corrupti labore vitae est explicabo non quidem dolores suscipit eaque nulla optio voluptatibus. Commodi dolores dicta illo. Ad, voluptatum. Dignissimos animi at sit eveniet laborum quidem vero beatae dolorum nam doloremque. Mollitia ab et, atque esse ducimus tempore non tempora nisi voluptatum necessitatibus laborum in velit molestias facere! Error, unde perferendis iure, est beatae aliquam accusantium maiores molestiae numquam harum consequuntur expedita reiciendis ipsa facere ducimus!</p>
     </div>
 {% endblock %}
-#6.7 สร้างไฟล์ custom.css ในโฟลเดอร์ inventory/static/backend/css/
 
+```
+
+\#6.7 สร้างไฟล์ custom.css ในโฟลเดอร์ inventory/static/backend/css/
+```css
 body {
     font-family: 'Noto Sans Thai', Poppins, sans-serif;
 }
-#6.8 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/auth/
+```
 
+\#6.8 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/auth/
+```html
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -815,8 +1001,10 @@ body {
     
 </body>
 </html>
-#6.9 สร้างไฟล์ login.html ในโฟลเดอร์ inventory/templates/auth/
+```
 
+\#6.9 สร้างไฟล์ login.html ในโฟลเดอร์ inventory/templates/auth/
+```html
 {% extends 'auth/main_layout.html' %}
 {% load static %}
 
@@ -880,8 +1068,10 @@ body {
 </div>
 
 {% endblock %}
-#6.10 สร้างไฟล์ register.html ในโฟลเดอร์ inventory/templates/auth/
+```
 
+\#6.10 สร้างไฟล์ register.html ในโฟลเดอร์ inventory/templates/auth/
+```html
 {% extends 'auth/main_layout.html' %}
 {% load static %}
 {% block title %} ลงทะเบียน {% endblock %}
@@ -941,8 +1131,10 @@ body {
 </div>
 
 {% endblock %}
-#6.11 สร้างไฟล์ navbar.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```
 
+\#6.11 สร้างไฟล์ navbar.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```html
 {% load static %}
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -1136,8 +1328,10 @@ body {
     </ul>
 
 </nav>
-#6.12 สร้างไฟล์ sidebar.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```
 
+\#6.12 สร้างไฟล์ sidebar.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```html
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -1222,8 +1416,10 @@ body {
     </div>
 
 </ul>
-#6.13 สร้างไฟล์ footer.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```
 
+\#6.13 สร้างไฟล์ footer.inc.html ในโฟลเดอร์ inventory/templates/backend/
+```html
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
@@ -1231,8 +1427,10 @@ body {
         </div>
     </div>
 </footer>
-#6.14 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/backend/
+```
 
+\#6.14 สร้างไฟล์ main_layout.html ในโฟลเดอร์ inventory/templates/backend/
+```html
 {% load static %}
 <!DOCTYPE html>
 
@@ -1280,8 +1478,10 @@ body {
     {% endblock footer_scripts %}
 </body>
 </html>
-#6.14 สร้างไฟล์ dashboard.html ในโฟลเดอร์ inventory/templates/backend/
+```
 
+\#6.14 สร้างไฟล์ dashboard.html ในโฟลเดอร์ inventory/templates/backend/
+```html
 {% extends 'backend/main_layout.html' %}
 {% load static %}
 {% block title %} แดชบอร์ด {% endblock %}
@@ -1541,8 +1741,10 @@ body {
     <script src="{% static './backend/js/demo/chart-pie-demo.js' %}"></script>
     <script src="{% static './backend/js/demo/chart-bar-demo.js' %}"></script>
 {% endblock footer_scripts %}
-#6.15 แก้ไขไฟล์ custom.css ในโฟลเดอร์ inventory/static/backend/css/
+```
 
+\#6.15 แก้ไขไฟล์ custom.css ในโฟลเดอร์ inventory/static/backend/css/
+```css
 body {
     font-family: 'Noto Sans Thai', Poppins, sans-serif;
 }
@@ -1575,8 +1777,10 @@ body {
 .sidebar .nav-item .collapse{
     background-color: #0f172a;
 }
-#6.16 แก้ไขไฟล์ views.py ในโฟลเดอร์ stock/
+```
 
+\#6.16 แก้ไขไฟล์ views.py ในโฟลเดอร์ stock/
+```python
 from django.shortcuts import render
 
 # สร้างฟังก์ชันเรียกหน้า html ที่เราสร้างขึ้นมา
@@ -1594,8 +1798,10 @@ def register(request):
 # ฟังก์ชันเรียกหน้า dashboard.html
 def dashboard(request):
     return render(request, 'backend/dashboard.html')
-#6.16 แก้ไขไฟล์ urls.py ในโฟลเดอร์ stock/
+```
 
+\#6.16 แก้ไขไฟล์ urls.py ในโฟลเดอร์ stock/
+```python
 from django import views
 from django.urls import path
 from . import views
@@ -1611,19 +1817,25 @@ urlpatterns = [
     # Backend
     path('backend/dashboard', views.dashboard, name='dashboard'),
 ]
-⚡ Day 4
-CRUD MySQL ด้วย Django
-หัวข้อการเรียนรู้
-การสร้างโมเดลสำหรับเก็บข้อมูลสินค้า
-การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
-การสร้าง superuser และเข้า admin site
-การสร้างหน้าแสดงข้อมูลสินค้า
-การสร้างหน้าเพิ่มข้อมูลสินค้า
-การสร้างหน้าแก้ไขข้อมูลสินค้า
-การสร้างหน้าลบข้อมูลสินค้า
-#1. การสร้างโมเดลสำหรับเก็บข้อมูลสินค้า
-#1.1 แก้ไขไฟล์ stock/models.py
+```
 
+### ⚡ Day 4
+
+#### CRUD MySQL ด้วย Django
+
+##### หัวข้อการเรียนรู้
+1. การสร้างโมเดลสำหรับเก็บข้อมูลสินค้า  
+2. การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
+3. การสร้าง superuser และเข้า admin site
+4. การสร้างหน้าแสดงข้อมูลสินค้า
+5. การสร้างหน้าเพิ่มข้อมูลสินค้า
+6. การสร้างหน้าแก้ไขข้อมูลสินค้า
+7. การสร้างหน้าลบข้อมูลสินค้า
+
+##### #1. การสร้างโมเดลสำหรับเก็บข้อมูลสินค้า
+
+\#1.1 แก้ไขไฟล์ stock/models.py
+```python
 from django.db import models
 
 # stock product 
@@ -1638,20 +1850,32 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
-#2. การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
-#2.1 สร้างไฟล์ migrations และ migrate ฐานข้อมูล
+```
 
+##### #2. การสร้างไฟล์ migrations และ migrate ฐานข้อมูล
+
+\#2.1 สร้างไฟล์ migrations และ migrate ฐานข้อมูล
+```bash
 $ python manage.py makemigrations
 $ python manage.py migrate
-#3. การสร้าง superuser และเข้า admin site
-#3.1 สร้าง superuser
+```
 
+##### #3. การสร้าง superuser และเข้า admin site
+
+\#3.1 สร้าง superuser
+```bash
 $ python manage.py createsuperuser
-#3.2 เข้า admin site โดยใช้ username และ password ที่ได้สร้างไว้
+```
 
+\#3.2 เข้า admin site โดยใช้ username และ password ที่ได้สร้างไว้
+```bash
 $ python manage.py runserver
-#4. การสร้างหน้าแสดงข้อมูลสินค้า
-#4.1 แก้ไขไฟล์ stock/views.py
+```
+
+##### #4. การสร้างหน้าแสดงข้อมูลสินค้า
+
+\#4.1 แก้ไขไฟล์ stock/views.py
+```python
 
 from django.shortcuts import render
 
@@ -1661,8 +1885,10 @@ def index(request):
 
 def product_list(request):
     return render(request, 'backend/product_list.html')
-#4.2 แก้ไขไฟล์ inventory/urls.py
+```
 
+\#4.2 แก้ไขไฟล์ inventory/urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from stock import views
@@ -1672,8 +1898,10 @@ urlpatterns = [
     path('', views.index),
     path('product_list/', views.product_list),
 ]
-#4.3 แก้ไขไฟล์ inventory/templates/backend/dashboard.html
+```
 
+\#4.3 แก้ไขไฟล์ inventory/templates/backend/dashboard.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Dashboard{% endblock %}
@@ -1682,8 +1910,10 @@ urlpatterns = [
     <h1>Dashboard</h1>
     <a href="{% url 'product_list' %}">Product List</a>
 {% endblock %}
-#4.4 สร้างไฟล์ inventory/templates/backend/product_list.html
+```
 
+\#4.4 สร้างไฟล์ inventory/templates/backend/product_list.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Product List{% endblock %}
@@ -1691,9 +1921,12 @@ urlpatterns = [
 {% block content %}
     <h1>Product List</h1>
 {% endblock %}
-#5. การสร้างหน้าเพิ่มข้อมูลสินค้า
-#5.1 แก้ไขไฟล์ stock/views.py
+```
 
+##### #5. การสร้างหน้าเพิ่มข้อมูลสินค้า
+
+\#5.1 แก้ไขไฟล์ stock/views.py
+```python
 from django.shortcuts import render
 
 # Create your views here.
@@ -1705,8 +1938,10 @@ def product_list(request):
 
 def product_add(request):
     return render(request, 'backend/product_add.html')
-#5.2 แก้ไขไฟล์ inventory/urls.py
+```
 
+\#5.2 แก้ไขไฟล์ inventory/urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from stock import views
@@ -1717,8 +1952,10 @@ urlpatterns = [
     path('product_list/', views.product_list, name='product_list'),
     path('product_add/', views.product_add, name='product_add'),
 ]
-#5.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```
 
+\#5.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Product List{% endblock %}
@@ -1727,8 +1964,10 @@ urlpatterns = [
     <h1>Product List</h1>
     <a href="{% url 'product_add' %}">Add Product</a>
 {% endblock %}
-#5.4 สร้างไฟล์ inventory/templates/backend/product_add.html
+```
 
+\#5.4 สร้างไฟล์ inventory/templates/backend/product_add.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Add Product{% endblock %}
@@ -1736,9 +1975,12 @@ urlpatterns = [
 {% block content %}
     <h1>Add Product</h1>
 {% endblock %}
-#6. การสร้างหน้าแก้ไขข้อมูลสินค้า
-#6.1 แก้ไขไฟล์ stock/views.py
+```
 
+##### #6. การสร้างหน้าแก้ไขข้อมูลสินค้า
+
+\#6.1 แก้ไขไฟล์ stock/views.py
+```python
 from django.shortcuts import render
 
 # Create your views here.
@@ -1753,8 +1995,10 @@ def product_add(request):
 
 def product_edit(request):
     return render(request, 'backend/product_edit.html')
-#6.2 แก้ไขไฟล์ inventory/urls.py
+```
 
+\#6.2 แก้ไขไฟล์ inventory/urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from stock import views
@@ -1766,8 +2010,10 @@ urlpatterns = [
     path('product_add/', views.product_add, name='product_add'),
     path('product_edit/', views.product_edit, name='product_edit'),
 ]
-#6.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```
 
+\#6.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Product List{% endblock %}
@@ -1777,8 +2023,10 @@ urlpatterns = [
     <a href="{% url 'product_add' %}">Add Product</a>
     <a href="{% url 'product_edit' %}">Edit Product</a>
 {% endblock %}
-#6.4 สร้างไฟล์ inventory/templates/backend/product_edit.html
+```
 
+\#6.4 สร้างไฟล์ inventory/templates/backend/product_edit.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Edit Product{% endblock %}
@@ -1786,9 +2034,12 @@ urlpatterns = [
 {% block content %}
     <h1>Edit Product</h1>
 {% endblock %}
-#7. การสร้างหน้าลบข้อมูลสินค้า
-#7.1 แก้ไขไฟล์ stock/views.py
+```
 
+##### #7. การสร้างหน้าลบข้อมูลสินค้า
+
+\#7.1 แก้ไขไฟล์ stock/views.py
+```python
 from django.shortcuts import render
 
 # Create your views here.
@@ -1806,8 +2057,10 @@ def product_edit(request):
 
 def product_delete(request):
     return render(request, 'backend/product_delete.html')
-#7.2 แก้ไขไฟล์ inventory/urls.py
+```
 
+\#7.2 แก้ไขไฟล์ inventory/urls.py
+```python
 from django.contrib import admin
 from django.urls import path
 from stock import views
@@ -1820,8 +2073,10 @@ urlpatterns = [
     path('product_edit/', views.product_edit, name='product_edit'),
     path('product_delete/', views.product_delete, name='product_delete'),
 ]
-#7.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```
 
+\#7.3 แก้ไขไฟล์ inventory/templates/backend/product_list.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Product List{% endblock %}
@@ -1832,8 +2087,10 @@ urlpatterns = [
     <a href="{% url 'product_edit' %}">Edit Product</a>
     <a href="{% url 'product_delete' %}">Delete Product</a>
 {% endblock %}
-#7.4 สร้างไฟล์ inventory/templates/backend/product_delete.html
+```
 
+\#7.4 สร้างไฟล์ inventory/templates/backend/product_delete.html
+```html
 {% extends 'base.html' %}
 
 {% block title %}Delete Product{% endblock %}
@@ -1841,3 +2098,4 @@ urlpatterns = [
 {% block content %}
     <h1>Delete Product</h1>
 {% endblock %}
+```
